@@ -1,7 +1,29 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
+10.times do |blog|
+  Blog.create!(
+    title: "My Blog Post #{blog}",
+    body: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque viverra erat id lacus auctor, dignissim aliquam ipsum porta. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Integer pulvinar rhoncus lacus et rhoncus. Phasellus faucibus hendrerit ornare. Fusce non justo eros. Aliquam libero leo, iaculis ac lacinia eu, aliquam pulvinar est. In vitae interdum felis, quis pharetra tortor. Nam sit amet enim augue. Vivamus quis tincidunt nulla. Phasellus feugiat id mi sit amet faucibus. Quisque viverra lorem at ipsum posuere pharetra. Pellentesque laoreet, purus finibus volutpat imperdiet, nisl velit commodo urna, sit amet vehicula nunc nisi vitae purus. Morbi sit amet turpis vel lacus tempus suscipit."
+  )
+end
+
+puts "10 Blogs were successfully created"
+
+5.times do |skill|
+  Skill.create!(
+    title: "Rails #{skill}",
+    percent_utilised: 15
+  )
+end
+
+puts "5 Skills were successfully created"
+
+puts "9 Portfolio items were successfully created"
+
+9.times do |portfolio|
+  Portfolio.create!(
+    title: "Portfolio #{portfolio}",
+    subtitle: "subtitle for portfolio #{portfolio}",
+    body: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus eget tempor dolor. Vivamus consequat nulla a tellus suscipit eleifend. Proin tincidunt rutrum volutpat. Fusce at est fringilla, varius nulla id, fermentum augue. Maecenas a lorem mi. Praesent ut dignissim eros, eget hendrerit neque. Aliquam erat volutpat.",
+    main_image: "https://via.placeholder.com/500x400",
+    thumb_image: "https://via.placeholder.com/250x200"
+  )
+end
