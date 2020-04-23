@@ -21,7 +21,7 @@
     <header class="blog-header py-3">
       <div class="row flex-nowrap justify-content-between align-items-center">
         <div class="col-4 pt-1">
-          <a class="text-muted" href="#">Subscribe</a>
+          <a class="text-muted" href="#">MyBlog</a>
         </div>
         <div class="col-4 text-center">
           <a class="blog-header-logo text-dark" href="#">Large</a>
@@ -33,19 +33,12 @@
           <a class="btn btn-sm btn-outline-secondary" href="#">Sign up</a>
         </div>
       </div>
+      <%= link_to 'Create a New Blog', new_blog_path if logged_in?(:site_admin) %>
     </header>
     <!-- End of header -->
 
-    <!-- Start of container and row elements -->
     <div class="container">
       <div class="row">
-
-        <!-- End of container and row elements -->
-
-        <p class="notice"><%= notice %></p>
-        <p class="alert"><%= alert %></p>
-
-        <%= login_helper %>
 
         <%= yield %>
 
@@ -86,6 +79,7 @@
         </aside><!-- /.blog-sidebar -->
 
         <!-- End of sidebar -->
+      </div>
 
         <!-- Start of footer -->
         <footer class="blog-footer">
@@ -96,10 +90,7 @@
         </footer>
         <!-- End of footer -->
 
-        <%= render 'shared/nav', location: 'bottom' %>
-
         <%= source_helper("blog") %>
-      </div>
     </div>
   </body>
 </html>
