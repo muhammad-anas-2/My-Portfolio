@@ -1,5 +1,9 @@
 <%= form_for(@portfolio) do |f| %>
-
+  <% if @portfolio.errors.any? %>
+    <% @portfolio.errors.full_messages.each do |error| %>
+      <%= alert_generator error %>
+    <% end %>
+  <% end %>
   <div class="row">
     <div class="col-md-6">
       <div class="form-group">
@@ -41,11 +45,12 @@
 
       <div>
         <%= f.fields_for :technologies do |technology| %>
-        <div class="form-group">
-          <%= technology.label :name %>
-          <%= technology.text_field :name, class: 'form-control' %>
-        </div>
+          <%= render 'technology_fields', f: technology %>
         <% end %>
+
+        <div>
+          <%= link_to_add_association 'Add Technology', f, :technologies %>
+        </div>
       </div>
 
       <div class="form-group">
