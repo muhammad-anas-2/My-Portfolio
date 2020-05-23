@@ -5,13 +5,6 @@
  * Globals
  */
 
-/* Links */
-a,
-a:focus,
-a:hover {
-  color: #fff;
-}
-
 /* Custom default button */
 .btn-secondary,
 .btn-secondary:hover,
@@ -173,4 +166,12 @@ body {
 
 .tech-news > .card {
   padding: 15px;
+}
+
+.app-card-container {
+  color: black;
+}
+
+.app-card-container > .card {
+  padding: 30px;
 }
