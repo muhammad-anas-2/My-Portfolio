@@ -2,6 +2,12 @@
 @import "jquery-ui";
 @import "gritter";
 
+html,
+body {
+  height: 100%;
+  font-family: 'Open Sans', sans-serif;
+}
+
 :root {
   --jumbotron-padding-y: 3rem;
 }
