@@ -10,6 +10,15 @@
       during independent projects. </p>
   </div>
 
+  <%= source_helper("alert alert-primary") %>
+
+  <div>
+    <h4>Topics</h4>
+    <% @side_bar_topics.each do |topic| %>
+      <p><%= link_to topic.title, topic_path(topic) %></p>
+    <% end %>
+  </div>
+
   <div class="p-3">
     <h4 class="font-italic">Elsewhere</h4>
     <ol class="list-unstyled social-icns">
