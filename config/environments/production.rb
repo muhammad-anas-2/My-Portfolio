@@ -91,5 +91,5 @@ Rails.application.configure do
   config.active_record.dump_schema_after_migration = false
 
   config.action_cable.allowed_request_origins = ['https://robson-dev-portfolio.herokuapp.com', 'http://robson-dev-portfolio.herokuapp.com']
-  config.web_socket_server_url = "wss://robson-dev-portfolio.herokuapp.com/cable"
+  config.action_cable.url = "wss://robson-dev-portfolio.herokuapp.com/cable"
 end
