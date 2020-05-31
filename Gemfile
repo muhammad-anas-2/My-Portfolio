@@ -26,6 +26,9 @@ group :development do
   gem 'listen', '~> 3.0.5'
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
+  gem 'rubocop', '~> 0.84.0', require: false
+  gem 'rubocop-performance', '~> 1.6', require: false
+  gem 'rubocop-rails', '~> 2.5', '>= 2.5.2', require: false
 end
 
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
