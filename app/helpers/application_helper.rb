@@ -1,13 +1,12 @@
 module ApplicationHelper
-  def login_helper style = ""
+  def login_helper(style = '')
     if current_user.is_a?(GuestUser)
       (link_to 'Login', new_user_session_path, class: style) +
-      "".html_safe +
-      (link_to 'Register', new_user_registration_path, class: style)
+        ''.html_safe +
+        (link_to 'Register', new_user_registration_path, class: style)
     else
       link_to 'Logout', destroy_user_session_path, method: :delete, class: style
     end
-
   end
 
   def source_helper(styles)
@@ -18,35 +17,25 @@ module ApplicationHelper
   end
 
   def copyright_generator
-    RobsonViewTool::Renderer.copyright "Robson Peacock", "All rights reserved"
+    RobsonViewTool::Renderer.copyright 'Robson Peacock', 'All rights reserved'
   end
 
   def nav_items
     [
-      {
-        url: root_path,
-        title: 'Home'
-      },
-      {
-        url: about_path,
-        title: 'About'
-      },
-      {
-        url: blogs_path,
-        title: 'Blog'
-      },
-      {
-        url: tech_news_path,
-        title: 'Tech News'
-      }
+      { url: root_path, title: 'Home' },
+      { url: about_path, title: 'About' },
+      { url: blogs_path, title: 'Blog' },
+      { url: tech_news_path, title: 'Tech News' }
     ]
   end
 
-  def nav_helper style, tag_type
+  def nav_helper(style, tag_type)
     nav_links = ''
 
     nav_items.each do |item|
-      nav_links << "<#{tag_type}><a href='#{item[:url]}' class='#{style} #{active? item[:url]}'>#{item[:title]}</a></#{tag_type}>"
+      nav_links << "<#{tag_type}>
+      <a href='#{item[:url]}' class='#{style} #{active? item[:url]}'>#{item[:title]}</a>
+      </#{tag_type}>"
     end
 
     nav_links.html_safe
@@ -55,17 +44,14 @@ module ApplicationHelper
   def alerts
     alert = (flash[:alert] || flash[:error] || flash[:notice])
 
-    if alert
-      alert_generator alert
-    end
+    alert_generator alert if alert
   end
 
-  def alert_generator msg
-    js add_gritter(msg, title: "Robson Peacocks Portfolio", sticky: false)
+  def alert_generator(msg)
+    js add_gritter(msg, title: 'Robson Peacocks Portfolio', sticky: false)
   end
 
-  def active? path
-    "active" if current_page? path
+  def active?(path)
+    'active' if current_page? path
   end
-
 end

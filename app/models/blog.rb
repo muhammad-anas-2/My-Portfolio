@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Blog < ApplicationRecord
   enum status: { draft: 0, published: 1 }
   extend FriendlyId
@@ -10,6 +12,6 @@ class Blog < ApplicationRecord
   has_many :comments, dependent: :destroy
 
   def self.recent
-    order("created_at DESC")
+    order('created_at DESC')
   end
 end

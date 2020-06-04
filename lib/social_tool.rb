@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module SocialTool
   def self.twitter_search
     client = Twitter::REST::Client.new do |config|

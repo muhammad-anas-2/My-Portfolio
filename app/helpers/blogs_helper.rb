@@ -1,5 +1,7 @@
+# frozen_string_literal: true
+
 module BlogsHelper
-  def gravatar_helper user
+  def gravatar_helper(user)
     image_tag "https://www.gravatar.com/avatar/#{Digest::MD5.hexdigest(user.email)}", width: 60
   end
 
@@ -23,7 +25,7 @@ module BlogsHelper
     markdown_to_html.render(text).html_safe
   end
 
-  def blog_status_color blog
+  def blog_status_color(blog)
     'color:red;' if blog.draft?
   end
 end
