@@ -1,27 +1,29 @@
-User.create!(
-  email: "test@test.com",
-  password: "Password123",
-  password_confirmation: "Password123",
-  name: "Admin User",
-  roles: "site_admin"
-)
-
-puts "1 Admin user created"
+# frozen_string_literal: true
 
 User.create!(
-  email: "test2@test.com",
-  password: "Password123",
-  password_confirmation: "Password123",
-  name: "Regular User"
+  email: 'test@test.com',
+  password: 'Password123',
+  password_confirmation: 'Password123',
+  name: 'Admin User',
+  roles: 'site_admin'
 )
 
-puts "1 regular user created"
+puts '1 Admin user created'
+
+User.create!(
+  email: 'test2@test.com',
+  password: 'Password123',
+  password_confirmation: 'Password123',
+  name: 'Regular User'
+)
+
+puts '1 regular user created'
 
 3.times do |topic|
   Topic.create!(title: "Topic #{topic}")
 end
 
-puts "3 Topics created"
+puts '3 Topics created'
 
 10.times do |blog|
   Blog.create!(
@@ -41,7 +43,7 @@ puts "3 Topics created"
   )
 end
 
-puts "10 Blogs were successfully created"
+puts '10 Blogs were successfully created'
 
 5.times do |skill|
   Skill.create!(
@@ -50,42 +52,42 @@ puts "10 Blogs were successfully created"
   )
 end
 
-puts "5 Skills were successfully created"
+puts '5 Skills were successfully created'
 
 8.times do |portfolio|
   Portfolio.create!(
     title: "Portfolio #{portfolio}",
-    subtitle: "Ruby on rails",
+    subtitle: 'Ruby on rails',
     body: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus
     eget tempor dolor. Vivamus consequat nulla a tellus suscipit eleifend.
     Proin tincidunt rutrum volutpat. Fusce at est fringilla, varius nulla id,
     fermentum augue. Maecenas a lorem mi. Praesent ut dignissim eros, eget
     hendrerit neque. Aliquam erat volutpat.",
-    main_image: "https://via.placeholder.com/500x400",
-    thumb_image: "https://via.placeholder.com/250x200"
+    main_image: 'https://via.placeholder.com/500x400',
+    thumb_image: 'https://via.placeholder.com/250x200'
   )
 end
 
 1.times do |portfolio|
   Portfolio.create!(
     title: "Portfolio #{portfolio}",
-    subtitle: "Angular",
+    subtitle: 'Angular',
     body: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus
     eget tempor dolor. Vivamus consequat nulla a tellus suscipit eleifend.
     Proin tincidunt rutrum volutpat. Fusce at est fringilla, varius nulla id,
     fermentum augue. Maecenas a lorem mi. Praesent ut dignissim eros, eget
     hendrerit neque. Aliquam erat volutpat.",
-    main_image: "https://via.placeholder.com/500x400",
-    thumb_image: "https://via.placeholder.com/250x200"
+    main_image: 'https://via.placeholder.com/500x400',
+    thumb_image: 'https://via.placeholder.com/250x200'
   )
 end
 
-puts "9 Portfolio items were successfully created"
+puts '9 Portfolio items were successfully created'
 
 3.times do |technology|
   Portfolio.last.technologies.create!(
-    name: "Technology #{technology}",
+    name: "Technology #{technology}"
   )
 end
 
-puts "3 technologies created"
+puts '3 technologies created'

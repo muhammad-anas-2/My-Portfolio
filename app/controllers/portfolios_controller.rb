@@ -1,14 +1,16 @@
+# frozen_string_literal: true
+
 class PortfoliosController < ApplicationController
-  before_action :set_portfolio, only: [:edit, :update, :show, :destroy]
+  before_action :set_portfolio, only: %i[edit update show destroy]
   layout 'portfolio'
-  access all: [:show, :index], user: { except: [:destroy, :new, :create, :update, :edit, :sort] }, site_admin: :all
+  access all: %i[show index], user: { except: %i[destroy new create update edit sort] }, site_admin: :all
 
   def index
     @portfolios = Portfolio.by_position
   end
 
   def sort
-    params[:order].each do |key, value|
+    params[:order].each do |_key, value|
       Portfolio.find(value[:id]).update(position: value[:position])
     end
 
@@ -31,8 +33,7 @@ class PortfoliosController < ApplicationController
     end
   end
 
-  def edit
-  end
+  def edit; end
 
   def update
     respond_to do |format|
@@ -44,8 +45,7 @@ class PortfoliosController < ApplicationController
     end
   end
 
-  def show
-  end
+  def show; end
 
   def destroy
     # Destroy record
@@ -65,7 +65,7 @@ class PortfoliosController < ApplicationController
                                       :body,
                                       :main_image,
                                       :thumb_image,
-                                      technologies_attributes: [:id, :name, :_destroy])
+                                      technologies_attributes: %i[id name _destroy])
   end
 
   def set_portfolio

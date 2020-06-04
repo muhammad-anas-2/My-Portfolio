@@ -1,19 +1,21 @@
+# frozen_string_literal: true
+
 class BlogsController < ApplicationController
-  before_action :set_blog, only: [:show, :edit, :update, :destroy, :toggle_status]
-  before_action :set_sidebar_topics, except: [:update, :create, :destroy, :toggle_status]
+  before_action :set_blog, only: %i[show edit update destroy toggle_status]
+  before_action :set_sidebar_topics, except: %i[update create destroy toggle_status]
   layout 'blog'
-  access all: [:show, :index], user: { except: [:destroy, :new, :create, :update,
-                                                :edit, :toggle_status] }, site_admin: :all
+  access all: %i[show index], user: { except: %i[destroy new create update
+                                                 edit toggle_status] }, site_admin: :all
 
   # GET /blogs
   # GET /blogs.json
   def index
-    if logged_in?(:site_admin)
-      @blogs = Blog.recent.page(params[:page]).per(5)
-    else
-      @blogs = Blog.published.recent.page(params[:page]).per(5)
-    end
-    @page_title = "My Portfolio Blog"
+    @blogs = if logged_in?(:site_admin)
+               Blog.recent.page(params[:page]).per(5)
+             else
+               Blog.published.recent.page(params[:page]).per(5)
+             end
+    @page_title = 'My Portfolio Blog'
   end
 
   # GET /blogs/1
@@ -26,7 +28,7 @@ class BlogsController < ApplicationController
       @page_title = @blog.title
       @seo_keywords = @blog.body
     else
-      redirect_to blogs_path, notice: "Please sign in to access this page"
+      redirect_to blogs_path, notice: 'Please sign in to access this page'
     end
   end
 
@@ -36,8 +38,7 @@ class BlogsController < ApplicationController
   end
 
   # GET /blogs/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /blogs
   # POST /blogs.json

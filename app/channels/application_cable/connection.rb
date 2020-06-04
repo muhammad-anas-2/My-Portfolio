@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module ApplicationCable
   class Connection < ActionCable::Connection::Base
     identified_by :current_user
@@ -5,10 +7,10 @@ module ApplicationCable
     def guest_user
       guest = GuestUser.new
       guest.id = guest.object_id
-      guest.name = "Guest User"
-      guest.first_name = "Guest"
-      guest.last_name = "User"
-      guest.email = "guest@user.com"
+      guest.name = 'Guest User'
+      guest.first_name = 'Guest'
+      guest.last_name = 'User'
+      guest.email = 'guest@user.com'
       guest
     end
 
@@ -21,9 +23,7 @@ module ApplicationCable
     protected
 
     def find_verified_user
-      if verified_user = env['warden'].user
-        verified_user
-      end
+      return verified_user = env['warden'].user unless verified_user == false
     end
   end
 end
