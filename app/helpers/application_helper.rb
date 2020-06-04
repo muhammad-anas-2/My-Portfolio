@@ -22,22 +22,10 @@ module ApplicationHelper
 
   def nav_items
     [
-      {
-        url: root_path,
-        title: 'Home'
-      },
-      {
-        url: about_path,
-        title: 'About'
-      },
-      {
-        url: blogs_path,
-        title: 'Blog'
-      },
-      {
-        url: tech_news_path,
-        title: 'Tech News'
-      }
+      { url: root_path, title: 'Home' },
+      { url: about_path, title: 'About' },
+      { url: blogs_path, title: 'Blog' },
+      { url: tech_news_path, title: 'Tech News' }
     ]
   end
 
