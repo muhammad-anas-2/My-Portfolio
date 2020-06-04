@@ -1,7 +1,7 @@
 class PortfoliosController < ApplicationController
   before_action :set_portfolio, only: [:edit, :update, :show, :destroy]
   layout 'portfolio'
-  access all: [:show, :index], user: {except: [:destroy, :new, :create, :update, :edit, :sort]}, site_admin: :all
+  access all: [:show, :index], user: { except: [:destroy, :new, :create, :update, :edit, :sort] }, site_admin: :all
 
   def index
     @portfolios = Portfolio.by_position
@@ -48,10 +48,10 @@ class PortfoliosController < ApplicationController
   end
 
   def destroy
-    #Destroy record
+    # Destroy record
     @portfolio.destroy
 
-    #Redirect user
+    # Redirect user
     respond_to do |format|
       format.html { redirect_to portfolios_url, notice: 'Portfolio was successfully removed.' }
     end
@@ -65,12 +65,10 @@ class PortfoliosController < ApplicationController
                                       :body,
                                       :main_image,
                                       :thumb_image,
-                                      technologies_attributes: [:id, :name, :_destroy]
-                                     )
+                                      technologies_attributes: [:id, :name, :_destroy])
   end
 
   def set_portfolio
     @portfolio = Portfolio.find(params[:id])
   end
-
 end

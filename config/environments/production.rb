@@ -53,7 +53,7 @@ Rails.application.configure do
   config.log_level = :debug
 
   # Prepend all log lines with the following tags.
-  config.log_tags = [ :request_id ]
+  config.log_tags = [:request_id]
 
   # Use a different cache store in production.
   # config.cache_store = :mem_cache_store
@@ -90,6 +90,7 @@ Rails.application.configure do
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
 
-  config.action_cable.allowed_request_origins = ['https://robson-dev-portfolio.herokuapp.com', 'http://robson-dev-portfolio.herokuapp.com']
+  config.action_cable.allowed_request_origins = ['https://robson-dev-portfolio.herokuapp.com',
+                                                 'http://robson-dev-portfolio.herokuapp.com']
   config.action_cable.url = "wss://robson-dev-portfolio.herokuapp.com/cable"
 end
