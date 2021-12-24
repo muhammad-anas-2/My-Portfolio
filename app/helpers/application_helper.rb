@@ -17,7 +17,7 @@ module ApplicationHelper
   end
 
   def copyright_generator
-    RobsonViewTool::Renderer.copyright 'Robson Peacock', 'All rights reserved'
+    RobsonViewTool::Renderer.copyright 'Muhammad Anas', 'All rights reserved'
   end
 
   def nav_items
@@ -25,7 +25,7 @@ module ApplicationHelper
       { url: root_path, title: 'Home' },
       { url: about_path, title: 'About' },
       { url: blogs_path, title: 'Blog' },
-      { url: tech_news_path, title: 'Tech News' }
+      # { url: tech_news_path, title: 'Tech News' }
     ]
   end
 
@@ -48,7 +48,7 @@ module ApplicationHelper
   end
 
   def alert_generator(msg)
-    js add_gritter(msg, title: 'Robson Peacocks Portfolio', sticky: false)
+    js add_gritter(msg, title: 'Muhammad Anas Portfolio', sticky: false)
   end
 
   def active?(path)
